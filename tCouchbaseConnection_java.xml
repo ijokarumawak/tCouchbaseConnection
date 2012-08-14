@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<COMPONENT>
+	<HEADER AUTHOR="ijokarumawak" COMPATIBILITY="ALL"
+		DATA_AUTO_PROPAGATE="false" PLATEFORM="ALL" RELEASE_DATE="20120813A"
+		SERIAL="" STARTABLE="true" STATUS="ALPHA" VERSION="0.1"> 
+    <SIGNATURE/> 
+  </HEADER>  
+  <FAMILIES> 
+    <FAMILY>NoSQL/Couchbase</FAMILY>
+  </FAMILIES>  
+  <DOCUMENTATION> 
+    <URL/> 
+  </DOCUMENTATION>  
+  <CONNECTORS>
+    <CONNECTOR CTYPE="FLOW" MAX_INPUT="0" MAX_OUTPUT="0" MIN_INPUT="0" MIN_OUTPUT="0"/> 
+	<CONNECTOR CTYPE="SUBJOB_OK" MAX_INPUT="1" />
+	<CONNECTOR CTYPE="SUBJOB_ERROR" MAX_INPUT="1" />
+	<CONNECTOR CTYPE="COMPONENT_OK" />
+	<CONNECTOR CTYPE="COMPONENT_ERROR" />
+	<CONNECTOR CTYPE="RUN_IF" />
+  </CONNECTORS>  
+  <PARAMETERS>
+    <PARAMETER FIELD="TABLE" NAME="URIS" NUM_ROW="1" NB_LINES="3" REQUIRED="true">
+        <ITEMS>
+            <ITEM NAME="URI" FIELD="TEXT" />
+        </ITEMS>
+    </PARAMETER>
+    <PARAMETER FIELD="TEXT" NAME="BUCKETNAME" NUM_ROW="2" REQUIRED="true"/>
+	<PARAMETER FIELD="TEXT" NAME="USERNAME" NUM_ROW="3">
+		<DEFAULT>""</DEFAULT>
+	</PARAMETER>
+	<PARAMETER FIELD="TEXT" NAME="PASSWORD" NUM_ROW="4">
+		<DEFAULT>""</DEFAULT>
+	</PARAMETER>
+  </PARAMETERS>  
+  <ADVANCED_PARAMETERS />
+  <CODEGENERATION> 
+    <IMPORTS> 
+      <IMPORT MODULE="commons-codec-1.5.jar" NAME="commons-codec" REQUIRED="true"/>
+      <IMPORT MODULE="couchbase-client-1.1-dp.jar" NAME="couchbase-client" REQUIRED="true"/>
+      <IMPORT MODULE="httpcore-4.1.1.jar" NAME="httpcore" REQUIRED="true"/>
+      <IMPORT MODULE="httpcore-nio-4.1.1.jar" NAME="httpcore-nio" REQUIRED="true"/>
+      <IMPORT MODULE="jettison-1.1.jar" NAME="jettison" REQUIRED="true"/>
+      <IMPORT MODULE="netty-3.2.0.Final.jar" NAME="netty" REQUIRED="true"/>
+      <IMPORT MODULE="spymemcached-2.8.1.jar" NAME="spymemcached" REQUIRED="true"/>
+      <IMPORT MODULE="stax-api-1.0.1.jar" NAME="stax-api" REQUIRED="true"/>
+    </IMPORTS> 
+  </CODEGENERATION>  
+  <RETURNS> 
+    <RETURN AVAILABILITY="AFTER" NAME="NB_LINE" TYPE="id_Integer"/> 
+  </RETURNS> 
+</COMPONENT>
